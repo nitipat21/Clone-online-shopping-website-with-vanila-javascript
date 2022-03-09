@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Home | Simple</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <button class="nav-bar-toggle">=</button>
+        <div class="nav-bar-link">
+            <a href="/HTML/index.html">Home</a>
+            <a href="/HTML/products.html" target="_blank">Products</a>
+            <a href="/HTML/about.html" target="_blank">About</a>
+        </div>
+        <div class="nav-bar-image"><img src="/IMG/logo.png" alt="logo-image"></div>
+        <div class="nav-bar-cart">
+            <span class="cart-count">0</span>
+            <img src="/IMG/shopping-cart.png" alt="cart-image">  
+        </div>
+    </nav>
+    <section class="banner">
+            <div class="banner-text">
+                <h1 class="slogan1">Positive Mind, Vibes, Life</h1>
+                <h2 class="slogan2">Don't think to much, just do what makes you happy.</h2>
+            </div>
+            <div class="banner-btn">
+                <button class="shop-btn" onclick="location.href='/HTML/products.html'">SHOP NOW</button>
+            </div>
+    </section>
+    <div class="sidebar-overlay">
+        <aside class="sidebar">
+            <button class="sidebar-close">
+                <i class="fas fa-times">X</i>
+            </button>
+            <ul class="sidebar-link">
+                <li><a href="/HTML/index.html">Home</a></li>
+                <li><a href="/HTML/products.html" target="_blank">Products</a></li>
+                <li><a href="/HTML/about.html" target="_blank">About</a></li>
+            </ul>
+        </aside>
+    </div>
+    <div class="cart-sidebar-overlay">
+        <aside class="cart-sidebar">
+            <button class="sidebar-close">
+                <i class="fas fa-times">X</i>
+            </button>
+            <h1 class="cart-sidebar-title">Your Cart</h1>
+            <div class="cart-sidebar-items"></div>
+            <div class="cart-sidebar-footer">
+                <h1 class="cart-sidebar-total">Total:
+                    <span class="cart-sidebar-amount">$0.00</span>
+                </h1>
+                <button class="cart-sidebar-submit">Check out</button>
+        </div>
+        </aside>
+    </div>
+    <section class="featured">
+        <div class="featured-title">
+            <h1>/ Featured</h1>
+        </div>
+        <div class="featured-articles">
+        </div>
+    </section>
+</body>
+<script src="/JS/main.js"></script>
+<script src="/JS/store.js"></script>
+</html>
