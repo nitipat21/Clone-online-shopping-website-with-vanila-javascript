@@ -11,7 +11,7 @@ const data = [
     {
         "id": "1",
         "name": "Product1",
-        "company": "Company1",
+        "company": "CompanyA",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -19,7 +19,7 @@ const data = [
     },{
         "id": "2",
         "name": "Product2",
-        "company": "Company2",
+        "company": "CompanyB",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -27,7 +27,7 @@ const data = [
     },{
         "id": "3",
         "name": "Product3",
-        "company": "Company3",
+        "company": "CompanyC",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -35,7 +35,7 @@ const data = [
     },{
         "id": "4",
         "name": "Product4",
-        "company": "Company4",
+        "company": "CompanyD",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -43,7 +43,7 @@ const data = [
     },{
         "id": "5",
         "name": "Product5",
-        "company": "Company5",
+        "company": "CompanyA",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -51,7 +51,7 @@ const data = [
     },{
         "id": "6",
         "name": "Product6",
-        "company": "Company6",
+        "company": "CompanyB",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -59,7 +59,7 @@ const data = [
     },{
         "id": "7",
         "name": "Product7",
-        "company": "Company7",
+        "company": "CompanyC",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -67,7 +67,7 @@ const data = [
     },{
         "id": "8",
         "name": "Product8",
-        "company": "Company8",
+        "company": "CompanyD",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -75,7 +75,7 @@ const data = [
     },{
         "id": "9",
         "name": "Product9",
-        "company": "Company9",
+        "company": "CompanyA",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -83,7 +83,7 @@ const data = [
     },{
         "id": "10",
         "name": "Product10",
-        "company": "Company10",
+        "company": "CompanyB",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -91,7 +91,7 @@ const data = [
     },{
         "id": "11",
         "name": "Product11",
-        "company": "Company11",
+        "company": "CompanyC",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",
@@ -99,7 +99,7 @@ const data = [
     },{
         "id": "12",
         "name": "Product12",
-        "company": "Company12",
+        "company": "CompanyD",
         "color": "color",
         "image": "/\IMG/\house.png",
         "price": "99.00",

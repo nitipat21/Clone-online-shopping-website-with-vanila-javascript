@@ -12,7 +12,6 @@ const   sideBarCloseBtn = document.querySelector(".sidebar-close"),
 
 // event listener
 
-window.addEventListener("load",init);
 navBarToggle.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
 sideBarCloseBtn.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
 cartSideBarCloseBtn.addEventListener("click",toggleClassList.bind(this,cartSideBarOverlay,"show"));
@@ -22,12 +21,6 @@ navBarCart.addEventListener("click",toggleClassList.bind(this,cartSideBarOverlay
 
 function toggleClassList (event,className) {
     event.classList.toggle(className);
-}
-
-function init () {
-    setLocalStorage("store",data);
-    generateStore();
-    generateCart();
 }
 
 function generateStore () {
@@ -132,9 +125,9 @@ function generateCart () {
                         <button class="product-remove-btn" onclick="removeProductFromCart(this)">remove</button> 
                     </div>
                     <div class="product-amount-adjust">
-                        <button class="product-increase-btn" onclick="console.log("increase")">increase</button>
+                        <button class="product-increase-btn" onclick="increaseCartItems(this)">increase</button>
                         <h4 class="product-amount">${thisProduct.amount}</h4>
-                        <button class="product-decrease-btn" onclick="console.log("decrease")">decrease</button>
+                        <button class="product-decrease-btn" onclick="decreaseCartItems(this)">decrease</button>
                     </div>`;
             
             articleNode.innerHTML = productInCart;
@@ -158,20 +151,36 @@ function countCartItems () {
 
 function increaseCartItems(btn) {
     const   itemsAmount = btn.nextElementSibling.textContent,
-            itemsAmountIncreased = parseInt(itemsAmount) + 1;
+            itemsAmountIncreased = parseInt(itemsAmount) + 1,
+            thisProductID = btn.parentElement.parentElement.id;
 
             btn.nextElementSibling.textContent = itemsAmountIncreased;
             countCartItems();
+            updateAmountOnLocalStorage(thisProductID,itemsAmountIncreased);
 }
 
 function decreaseCartItems(btn) {
     const   itemsAmount = btn.previousElementSibling.textContent,
-            itemsAmountDecreased = parseInt(itemsAmount) - 1;
+            itemsAmountDecreased = parseInt(itemsAmount) - 1,
+            thisProductID = btn.parentElement.parentElement.id;;
+
+            btn.previousElementSibling.textContent = itemsAmountDecreased;
+            countCartItems();
+            updateAmountOnLocalStorage(thisProductID,itemsAmountDecreased);
 
             if (!itemsAmountDecreased) {
                 removeProductFromCart(btn);
             }
+}
 
-            btn.previousElementSibling.textContent = itemsAmountDecreased;
-            countCartItems();
+function updateAmountOnLocalStorage(key,amount){
+    const   thisProductLocalStorage = getLocalStorage(key),
+            cloneOfThisProduct = cloneObject(thisProductLocalStorage);
+
+    cloneOfThisProduct.amount = JSON.stringify(amount);
+    setLocalStorage(key,cloneOfThisProduct);
+}
+
+function cloneObject(object) {
+    return JSON.parse(JSON.stringify(object));
 }
