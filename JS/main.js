@@ -1,4 +1,3 @@
-// declare value
 const   sideBarCloseBtn = document.querySelector(".sidebar-close"),
         sideBarOverlay = document.querySelector(".sidebar-overlay"),
         navBarToggle = document.querySelector(".nav-bar-toggle"),
@@ -9,16 +8,12 @@ const   sideBarCloseBtn = document.querySelector(".sidebar-close"),
         productCartList = document.querySelector(".cart-sidebar-items"),
         removeProductFromCartBtn = document.querySelector(".product-remove-btn"),
         cartCount = document.querySelector(".cart-count");
-
-// event listener
-
+// 
 navBarToggle.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
 sideBarCloseBtn.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
 cartSideBarCloseBtn.addEventListener("click",toggleClassList.bind(this,cartSideBarOverlay,"show"));
 navBarCart.addEventListener("click",toggleClassList.bind(this,cartSideBarOverlay,"show"));
-
-// function
-
+// 
 function toggleClassList (event,className) {
     event.classList.toggle(className);
 }
@@ -35,7 +30,7 @@ function generateStore () {
 function createProduct (array,index) {
     const   thisProduct = array[index],
             productArticle = `
-                <article class="product" id="${thisProduct.id}">
+                <article class="product ${thisProduct.company}" id="${thisProduct.id}">
                         <div class="product-image-container">
                             <img src="${thisProduct.image}" alt="product image" class="product-image">
                             <div class="product-icons">

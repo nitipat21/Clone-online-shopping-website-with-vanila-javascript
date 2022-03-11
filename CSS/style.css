@@ -285,6 +285,11 @@
 }
 
 .filter-list li{
+    cursor: pointer;
+    width: fit-content;
+}
+
+.filter-list li{
     margin-top: 10px;
 }
 
@@ -330,6 +335,10 @@
 .product-image-cart{
     height: 75px;
     width: 75px; 
+}
+
+.hide-product{
+    display: none;
 }
 
 /* about page */
