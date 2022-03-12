@@ -32,6 +32,36 @@ function filterCompanyName (name) {
             })
 }
 
-function filterPriceRange (price){
-    price.textContent = `$${btnVolumeFilter.value}-5,000`;
+function filterPriceRange (price) {
+    const   priceRange = activePriceFilter(price),
+            filterPrice = priceRange.slice(1,priceRange.length),
+            productListChild = productList.children,
+            productListChildArray = Array.from(productListChild);
+
+            productListChildArray.forEach(function(article){
+                const productPrice = article.lastElementChild.lastElementChild.textContent;
+
+                if (filterPrice === "0") {
+                    article.classList.remove("hide-product");
+                } else {
+                    if (productPrice >= filterPrice) {
+                        article.classList.remove("hide-product");
+                    } else if (productPrice < filterPrice) {
+                        article.classList.add("hide-product");
+                    }
+                }
+            })
+}
+
+function activePriceFilter (price){
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+    const priceRange = formatter.format(btnVolumeFilter.value).replace(/(\.|,)00$/g, "");
+    
+    price.textContent = `${priceRange}-5,000`;
+
+    return priceRange;
 }
