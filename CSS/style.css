@@ -301,6 +301,10 @@
     margin-top: 10px;
 }
 
+.filter-price-volume-amount{
+    font-size: 16px;
+}
+
 .products-list{
     background-color: rgba(255, 255, 255, 0.75);
     padding:20px 10px 20px 10px;
@@ -335,6 +339,10 @@
 .product-image-cart{
     height: 75px;
     width: 75px; 
+}
+
+.product-price::before{
+    content: "$";
 }
 
 .hide-product{
