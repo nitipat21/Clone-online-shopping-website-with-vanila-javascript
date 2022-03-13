@@ -34,20 +34,20 @@ function filterCompanyName (name) {
 
 function filterPriceRange (price) {
     const   priceRange = activePriceFilter(price),
-            filterPrice = priceRange.slice(1,priceRange.length),
+            filterPrice = priceRange.split("$")[1],
             productListChild = productList.children,
             productListChildArray = Array.from(productListChild);
-
+            console.log(Number(filterPrice))
             productListChildArray.forEach(function(article){
                 const productPrice = article.lastElementChild.lastElementChild.textContent;
 
                 if (filterPrice === "0") {
                     article.classList.remove("hide-product");
                 } else {
-                    if (productPrice >= filterPrice) {
-                        article.classList.remove("hide-product");
-                    } else if (productPrice < filterPrice) {
+                    if (filterPrice >= productPrice) {
                         article.classList.add("hide-product");
+                    } else if (filterPrice <= productPrice) {
+                        article.classList.remove("hide-product");
                     }
                 }
             })
