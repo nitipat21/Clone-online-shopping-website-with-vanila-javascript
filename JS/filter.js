@@ -1,4 +1,5 @@
-const   btnFilterAll = document.querySelector(".filter-list-1"),
+const   filterList = document.querySelector(".filter-list"),
+        btnFilterAll = document.querySelector(".filter-list-1"),
         btnFilterCompanyA = document.querySelector(".filter-list-2"),
         btnFilterCompanyB = document.querySelector(".filter-list-3"),
         btnFilterCompanyC = document.querySelector(".filter-list-4"),
@@ -18,35 +19,40 @@ function filterCompanyName (name) {
     const   filterName = name.textContent,
             productListChild = productList.children,
             productListChildArray = Array.from(productListChild);
-
+            filterPriceRange(btnVolumeFilter.value);
+            selectNameFilter(name);
+            
             productListChildArray.forEach(function(article){
-                if (filterName === "All") {
-                    article.classList.remove("hide-product");
-                } else {
-                    if (!article.classList.contains(filterName)) {
-                        article.classList.add("hide-product");
-                    } else {
+                if (!article.classList.contains("hide-product")) {
+                    if (filterName === "All") {
                         article.classList.remove("hide-product");
+                    } else {
+                        if (!article.classList.contains(filterName)) {
+                            article.classList.add("hide-product");
+                        } else {
+                            article.classList.remove("hide-product");
+                        }
                     }
                 }
-            })
+            });
 }
 
 function filterPriceRange (price) {
     const   priceRange = activePriceFilter(price),
-            filterPrice = priceRange.split("$")[1],
+            priceRangNum = parseFloat(priceRange.split("$")[1].replace(/,/g, "")),
             productListChild = productList.children,
             productListChildArray = Array.from(productListChild);
-            console.log(Number(filterPrice))
+            
             productListChildArray.forEach(function(article){
-                const productPrice = article.lastElementChild.lastElementChild.textContent;
+                const   productPrice = article.lastElementChild.lastElementChild.textContent,
+                        productPriceNum = parseFloat(productPrice.replace(/,/g, ""));
 
-                if (filterPrice === "0") {
+                if (priceRangNum === "0") {
                     article.classList.remove("hide-product");
                 } else {
-                    if (filterPrice >= productPrice) {
+                    if (priceRangNum > productPriceNum) {
                         article.classList.add("hide-product");
-                    } else if (filterPrice <= productPrice) {
+                    } else if (priceRangNum <= productPriceNum) {
                         article.classList.remove("hide-product");
                     }
                 }
@@ -64,4 +70,17 @@ function activePriceFilter (price){
     price.textContent = `${priceRange}-5,000`;
 
     return priceRange;
+}
+
+function selectNameFilter (name) {
+    const filterListArray = Array.from(filterList.children);
+
+    filterListArray.forEach(function(value){
+        if (name !== value.textContent)
+            if (value.classList.contains("selected")) {
+                value.classList.remove("selected");
+            }
+    })
+
+    name.classList.add("selected");
 }

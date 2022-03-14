@@ -305,6 +305,10 @@
     font-size: 16px;
 }
 
+.selected{
+    color: green;
+}
+
 .products-list{
     background-color: rgba(255, 255, 255, 0.75);
     padding:20px 10px 20px 10px;

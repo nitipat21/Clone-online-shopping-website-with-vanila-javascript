@@ -100,7 +100,7 @@ const data = [
         "company": "CompanyD",
         "color": "color",
         "image": "/\IMG/\house.png",
-        "price": "4,750",
+        "price": "5,000",
         "amount": "1"
     }
 ];
