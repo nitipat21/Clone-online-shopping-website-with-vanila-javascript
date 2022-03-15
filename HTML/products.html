@@ -53,9 +53,9 @@
     </div>
     <div class="products-container">
         <div class="filter">
-            <input type="text" placeholder="Search..">
+            <input class="filter-search" type="text" placeholder="Search..">
             <ul class="filter-list">
-                <li class="filter-list-1">All</li>
+                <li class="filter-list-1 selected">All</li>
                 <li class="filter-list-2">CompanyA</li>
                 <li class="filter-list-3">CompanyB</li>
                 <li class="filter-list-4">CompanyC</li>
@@ -64,14 +64,15 @@
             <div class="filter-price">
                 <div class="filter-price-title">Price</div>
                 <div class="filter-price-volume"><input type="range" min="0" max="5000" value="0" step="250"></div>
-                <div class="filter-price-volume-amount">$<span>0</span></div>
+                <div class="filter-price-volume-amount">$<span>0-5,000</span></div>
             </div>
+            <div class="filter-clear"><button class="filter-clear-btn">CLEAR</button></div>
         </div>
         <div class="products-list"></div>
     </div>
 </body>
-<script src="/JS/main.js"></script>
 <script src="/JS/store.js"></script>
+<script src="/JS/main.js"></script>
 <script src="/JS/filter.js"></script>
 <script src="/JS/productPage.js"></script>
 </html>

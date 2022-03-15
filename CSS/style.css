@@ -277,7 +277,7 @@
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 15px;
     padding:10px 10px 10px 10px;
-    height: 280px;
+    height: 300px;
 }
 
 .filter-list{
@@ -303,6 +303,16 @@
 
 .filter-price-volume-amount{
     font-size: 16px;
+}
+
+.filter-clear{
+    margin: 7.5px auto 7.5px auto;
+    
+    text-align: center;
+}
+
+.filter-clear-btn{
+    padding: 2.5px;
 }
 
 .selected{
@@ -349,7 +359,11 @@
     content: "$";
 }
 
-.hide-product{
+.hide-product-price{
+    display: none;
+}
+
+.hide-product-name{
     display: none;
 }
 
