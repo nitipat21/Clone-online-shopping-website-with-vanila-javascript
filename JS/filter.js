@@ -17,7 +17,7 @@ btnFilterCompanyC.addEventListener("click",filterCompanyName.bind(this,btnFilter
 btnFilterCompanyD.addEventListener("click",filterCompanyName.bind(this,btnFilterCompanyD));
 btnVolumeFilter.addEventListener("change",filterPriceRange.bind(this,volumeAmount));
 btnClearFilter.addEventListener("click",clearFilter.bind(this));
-filterSearch.addEventListener("keypress",matchLetters);
+filterSearch.addEventListener("keyup",matchLetters.bind(this,filterSearch));
 // 
 function filterCompanyName (name){
     const   filterName = name.textContent,
@@ -31,12 +31,12 @@ function filterCompanyName (name){
             productListChildArray.forEach(function(article){
                 if (!article.classList.contains("hide-product-price")) {
                     if (filterName === "All") {
-                        article.classList.remove("hide-product-name");
+                        article.classList.remove("hide-product-company");
                     } else {
                         if (!article.classList.contains(filterName)) {
-                            article.classList.add("hide-product-name");
+                            article.classList.add("hide-product-company");
                         } else {
-                            article.classList.remove("hide-product-name");
+                            article.classList.remove("hide-product-company");
                         }
                     }
                 }
@@ -108,7 +108,19 @@ function getProductName(key){
     return productNameArray;
 }
 
-function matchLetters(){
-    const   allProductName = getProductName("store");
-    console.log(allProductName);
+function matchLetters(event){
+    const   searchInput = event.value,
+            allProductName = getProductName("store"),
+            productListChild = productList.children,
+            productListChildArray = Array.from(productListChild),
+            matchedName = allProductName.filter(name => name.toLowerCase().includes(searchInput));
+            
+    productListChildArray.forEach(function(article){
+        const productName = article.lastElementChild.lastElementChild.previousElementSibling.textContent;
+        if (matchedName.includes(productName)) {
+            article.classList.remove("hide-product-name");
+        } else {
+            article.classList.add("hide-product-name");
+        }
+    })
 }

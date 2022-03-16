@@ -363,6 +363,10 @@
     display: none;
 }
 
+.hide-product-company{
+    display: none;
+}
+
 .hide-product-name{
     display: none;
 }
