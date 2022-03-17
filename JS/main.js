@@ -7,7 +7,8 @@ const   sideBarCloseBtn = document.querySelector(".sidebar-close"),
         productList = document.querySelector(".products-list"),
         productCartList = document.querySelector(".cart-sidebar-items"),
         removeProductFromCartBtn = document.querySelector(".product-remove-btn"),
-        cartCount = document.querySelector(".cart-count");
+        cartCount = document.querySelector(".cart-count"),
+        featuredArticles = document.querySelector(".featured-articles");
 // 
 navBarToggle.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
 sideBarCloseBtn.addEventListener("click",toggleClassList.bind(this,sideBarOverlay,"show"));
@@ -174,4 +175,41 @@ function updateAmountOnLocalStorage(key,amount){
 
 function cloneObject(object) {
     return JSON.parse(JSON.stringify(object));
+}
+
+function generatePromotedProduct () {
+    const   storeLocalStorage = getLocalStorage("store"),
+            storeArray = Array.from(storeLocalStorage),
+            randomNumberArray = [];
+
+    for (let index = 0; index < 4; index++) {
+        const randomNumber = Math.floor(Math.random()*(storeArray.length));
+
+        if (!randomNumberArray.includes(randomNumber)){
+            createFeaturedProduct(storeArray,randomNumber);
+            randomNumberArray.push(randomNumber);
+        } else {
+            index--;
+        };
+    }
+}
+
+function createFeaturedProduct (array,index) {
+    const   thisProduct = array[index],
+            productArticle = `
+                <article class="product ${thisProduct.company}" id="${thisProduct.id}">
+                        <div class="product-image-container">
+                            <img src="${thisProduct.image}" alt="product image" class="product-image">
+                            <div class="product-icons">
+                                <a href="http://" class="product-icon">Search</a>
+                                <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
+                            </div>
+                        </div>
+                        <footer>
+                            <p class="product-name">${thisProduct.name}</p>
+                            <h4 class="product-price">${thisProduct.price}</h4>
+                        </footer>
+                </article>`;
+
+    featuredArticles.innerHTML += productArticle;
 }
