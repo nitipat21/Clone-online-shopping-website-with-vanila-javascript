@@ -277,7 +277,7 @@
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 15px;
     padding:10px 10px 10px 10px;
-    height: 300px;
+    height: fit-content;
 }
 
 .filter-list{

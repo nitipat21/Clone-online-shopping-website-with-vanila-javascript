@@ -34,12 +34,8 @@ function createProduct (array,index) {
                         <div class="product-image-container">
                             <img src="${thisProduct.image}" alt="product image" class="product-image">
                             <div class="product-icons">
-                                <a href="http://" class="product-icon">
-                                    <i class="fas fa-search">search</i>
-                                </a>
-                                <button class="product-cart-btn" onclick="getProductToCart(this)">
-                                    <i class="fas fa-shopping-cart">cart</i>
-                                </button> 
+                                <a href="http://" class="product-icon">Search</a>
+                                <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
                             </div>
                         </div>
                         <footer>
@@ -127,7 +123,7 @@ function generateCart () {
             
             articleNode.innerHTML = productInCart;
             productCartList.appendChild(articleNode);
-            countCartItems ()
+            countCartItems();
         }
     }
 }

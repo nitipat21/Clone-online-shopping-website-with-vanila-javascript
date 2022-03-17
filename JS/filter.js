@@ -1,20 +1,12 @@
 const   filterList = document.querySelector(".filter-list"),
         filterSearch = document.querySelector(".filter-search"),
-        btnFilterAll = document.querySelector(".filter-list-1"),
-        btnFilterCompanyA = document.querySelector(".filter-list-2"),
-        btnFilterCompanyB = document.querySelector(".filter-list-3"),
-        btnFilterCompanyC = document.querySelector(".filter-list-4"),
-        btnFilterCompanyD = document.querySelector(".filter-list-5"),
+        btnFilterAll = document.querySelector(".filter-list-0"),
         volumeFilter = document.querySelector(".filter-price-volume"),
         volumeAmount = document.querySelector(".filter-price-volume-amount"),
         btnVolumeFilter = volumeFilter.firstElementChild,
         btnClearFilter = document.querySelector(".filter-clear-btn");
 // 
 btnFilterAll.addEventListener("click",filterCompanyName.bind(this,btnFilterAll));
-btnFilterCompanyA.addEventListener("click",filterCompanyName.bind(this,btnFilterCompanyA));
-btnFilterCompanyB.addEventListener("click",filterCompanyName.bind(this,btnFilterCompanyB));
-btnFilterCompanyC.addEventListener("click",filterCompanyName.bind(this,btnFilterCompanyC));
-btnFilterCompanyD.addEventListener("click",filterCompanyName.bind(this,btnFilterCompanyD));
 btnVolumeFilter.addEventListener("change",filterPriceRange.bind(this,volumeAmount));
 btnClearFilter.addEventListener("click",clearFilter.bind(this));
 filterSearch.addEventListener("keyup",matchLetters.bind(this,filterSearch));
@@ -123,4 +115,25 @@ function matchLetters(event){
             article.classList.add("hide-product-name");
         }
     })
+}
+
+function createFilterList(key){
+    const   companyNameArray = getProductCompany(key);
+            companyNameArray.sort();
+            companyNameArray.forEach(function(companyName, index){
+                const   itemFilterList = document.createElement("li");
+                        itemFilterList.setAttribute("class",`filter-list-${index+1}`);
+                        itemFilterList.textContent = companyName;
+                        itemFilterList.addEventListener("click",filterCompanyName.bind(this,itemFilterList));
+                        filterList.appendChild(itemFilterList);
+            });
+}
+
+function getProductCompany(key){
+    const   storeLocalStorage = getLocalStorage(key),
+            storeArray = Array.from(storeLocalStorage),
+            companyNameArray = [];
+
+    storeArray.forEach(product => companyNameArray.push(product.company));
+    return sortedDuplicateArray = Array.from(new Set(companyNameArray)); 
 }
