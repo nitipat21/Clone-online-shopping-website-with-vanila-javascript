@@ -1,10 +1,10 @@
 const setLocalStorage = function(key,value) {
     localStorage.setItem(key,JSON.stringify(value));
-}
+};
 const getLocalStorage = function(key) {
     const dataLocalStorage = JSON.parse(localStorage.getItem(key));
     return dataLocalStorage;
-}
+};
 const data = [
     {
         "id": "1",

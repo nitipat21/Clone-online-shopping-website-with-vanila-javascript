@@ -5,5 +5,6 @@ function init () {
     generateStore();
     generateCart();
     createFilterList("store");
+    generateTotalPrice();
 }
 
