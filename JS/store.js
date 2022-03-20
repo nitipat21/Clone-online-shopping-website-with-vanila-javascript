@@ -10,7 +10,7 @@ const data = [
         "id": "1",
         "name": "Apple1",
         "company": "CompanyA",
-        "color": "color",
+        "color": ["red","green"],
         "image": "/\IMG/\house.png",
         "price": "0",
         "amount": "1"

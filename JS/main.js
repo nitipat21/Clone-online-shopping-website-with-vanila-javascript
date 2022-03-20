@@ -36,7 +36,7 @@ function createProduct(array,index){
                         <div class="product-image-container">
                             <img src="${thisProduct.image}" alt="product image" class="product-image">
                             <div class="product-icons">
-                                <a href="http://" class="product-icon">Search</a>
+                                <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Search</a>
                                 <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
                             </div>
                         </div>
@@ -108,7 +108,7 @@ function removeProductFromCart(event){
 function generateCart(){
 
     for (let index = 0; index < localStorage.length; index++) {
-        if (localStorage.key(index) !== "store" && localStorage.key(index) !== "totalPrice" ) {
+        if (localStorage.key(index) !== "store" && localStorage.key(index) !== "totalPrice" && localStorage.key(index) !== "singleProduct" ) {
             const   thisProduct = getLocalStorage(localStorage.key(index)),
                     articleNode = document.createElement("article");
                     
@@ -228,7 +228,7 @@ function calculateTotal(){
     const totalPriceArray = [];
 
     for (let index = 0; index < localStorage.length; index++) {
-        if (localStorage.key(index) !== "store" && localStorage.key(index) !== "totalPrice" ) {
+        if (localStorage.key(index) !== "store" && localStorage.key(index) !== "totalPrice" && localStorage.key(index) !== "singleProduct" ) {
             const   thisProduct = getLocalStorage(localStorage.key(index)),
                     thisProductPrice = parseFloat(thisProduct.price.replace(/,/g, "")),
                     thisProductAmount = parseFloat(thisProduct.amount),
@@ -249,9 +249,14 @@ function calculateTotal(){
 function generateTotalPrice(){
     const totalCalculatedPrice = getLocalStorage("totalPrice");
 
-    cartTotalPrice.textContent = formatMoney(totalCalculatedPrice).replace(/(\.|,)00$/g, "");
+    if (totalCalculatedPrice) {
+        cartTotalPrice.textContent = formatMoney(totalCalculatedPrice).replace(/(\.|,)00$/g, "");
+    } else {
+        cartTotalPrice.textContent = "$0";
+    }
 }
 
 function formatMoney(number) {
     return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  }
+}
+
