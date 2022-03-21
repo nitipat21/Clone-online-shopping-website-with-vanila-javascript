@@ -35,12 +35,12 @@ function createProduct(array,index){
                 <article class="product ${thisProduct.company}" id="${thisProduct.id}">
                         <div class="product-image-container">
                             <img src="${thisProduct.image}" alt="product image" class="product-image">
-                            <div class="product-icons">
-                                <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Search</a>
-                                <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
-                            </div>
                         </div>
-                        <footer>
+                        <div class="product-icons">
+                            <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Info</a>
+                            <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
+                        </div>
+                        <footer class="product-footer">
                             <p class="product-name">${thisProduct.name}</p>
                             <h4 class="product-price">${thisProduct.price}</h4>
                         </footer>
@@ -50,7 +50,7 @@ function createProduct(array,index){
 }
 
 function getProductToCart(event){
-    const   articleID = event.parentElement.parentElement.parentElement.id,
+    const   articleID = event.parentElement.parentElement.id,
             storeLocalStorage = getLocalStorage("store"),
             storeArray = Array.from(storeLocalStorage),
             thisProduct = storeArray[articleID-1],
