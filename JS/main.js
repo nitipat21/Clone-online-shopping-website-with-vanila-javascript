@@ -211,7 +211,8 @@ function createFeaturedProduct(array,index) {
                         <div class="product-image-container">
                             <img src="${thisProduct.image}" alt="product image" class="product-image">
                             <div class="product-icons">
-                            <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Info</a>                                <button class="product-cart-btn" onclick="getProductToCart(this)">Cart</button> 
+                            <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Info</a>                                
+                            <button class="product-cart-btn" onclick="getFeaturedProductToCart(this)">Cart</button> 
                             </div>
                         </div>
                         <footer>
