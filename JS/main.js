@@ -215,7 +215,7 @@ function createFeaturedProduct(array,index) {
                             <button class="product-cart-btn" onclick="getFeaturedProductToCart(this)">Cart</button> 
                             </div>
                         </div>
-                        <footer>
+                        <footer class="product-footer">
                             <p class="product-name">${thisProduct.name}</p>
                             <h4 class="product-price">${thisProduct.price}</h4>
                         </footer>
