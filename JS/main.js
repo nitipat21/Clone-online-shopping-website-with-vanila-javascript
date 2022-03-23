@@ -34,7 +34,7 @@ function createProduct(array,index){
             productArticle = `
                 <article class="product ${thisProduct.company}" id="${thisProduct.id}">
                         <div class="product-image-container">
-                            <img src="${thisProduct.image}" alt="product image" class="product-image">
+                            <img src="${thisProduct.image}" loading="lazy" alt="product image" class="product-image">
                         </div>
                         <div class="product-icons">
                             <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Info</a>
@@ -61,7 +61,7 @@ function getProductToCart(event){
     if  (!localStorage.getItem(thisProduct.id)) {
         const   productInCart = `
                     <div class="product-image-container-cart">
-                        <img src="${thisProduct.image}" alt="product image" class="product-image-cart">
+                        <img src="${thisProduct.image}" alt="product image" loading="lazy" class="product-image-cart">
                     </div>
                     <div class="name-price-removeBtn">
                         <h4 class="product-name-cart">${thisProduct.name}</h4>
@@ -117,7 +117,7 @@ function generateCart(){
 
             const   productInCart = `
                     <div class="product-image-container-cart">
-                        <img src="${thisProduct.image}" alt="product image" class="product-image-cart">
+                        <img src="${thisProduct.image}" loading="lazy" alt="product image" class="product-image-cart">
                     </div>
                     <div class="name-price-removeBtn">
                         <h4 class="product-name-cart">${thisProduct.name}</h4>
@@ -209,7 +209,7 @@ function createFeaturedProduct(array,index) {
             productArticle = `
                 <article class="product ${thisProduct.company}" id="${thisProduct.id}">
                         <div class="product-image-container">
-                            <img src="${thisProduct.image}" alt="product image" class="product-image">
+                            <img src="${thisProduct.image}" loading="lazy" alt="product image" class="product-image">
                             <div class="product-icons">
                             <a href="/HTML/singleProduct.html" target="_blank" class="product-info" onclick="setLocalStorage('singleProduct',${thisProduct.id})">Info</a>                                
                             <button class="product-cart-btn" onclick="getFeaturedProductToCart(this)">Cart</button> 

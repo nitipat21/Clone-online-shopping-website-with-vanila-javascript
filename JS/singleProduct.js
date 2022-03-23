@@ -14,7 +14,7 @@ function createSingleProductInfo (){
             titleText = document.querySelector(".title-text"),
             thisProductInfo = storeArray[thisProductID-1],
             thisProductPage = ` <div class="single-product-image">
-                                    <img src="${thisProductInfo.image}" alt="${thisProductInfo.name} img" srcset="">
+                                    <img src="${thisProductInfo.image}" loading="lazy" alt="${thisProductInfo.name} img" srcset="">
                                 </div>
                                 <div class="single-product-info">
                                 <h1 class="single-product-name">${thisProductInfo.name}</h1>
@@ -47,7 +47,7 @@ function getSingleProductToCart(event){
     if  (!localStorage.getItem(thisProduct.id)) {
         const   productInCart = `
                     <div class="product-image-container-cart">
-                        <img src="${thisProduct.image}" alt="product image" class="product-image-cart">
+                        <img src="${thisProduct.image}" loading="lazy" salt="product image" class="product-image-cart">
                     </div>
                     <div class="name-price-removeBtn">
                         <h4 class="product-name-cart">${thisProduct.name}</h4>

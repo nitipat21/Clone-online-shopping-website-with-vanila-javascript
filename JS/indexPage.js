@@ -18,7 +18,7 @@ function getFeaturedProductToCart(event){
     if  (!localStorage.getItem(thisProduct.id)) {
         const   productInCart = `
                     <div class="product-image-container-cart">
-                        <img src="${thisProduct.image}" alt="product image" class="product-image-cart">
+                        <img src="${thisProduct.image}" loading="lazy" alt="product image" class="product-image-cart">
                     </div>
                     <div class="name-price-removeBtn">
                         <h4 class="product-name-cart">${thisProduct.name}</h4>
