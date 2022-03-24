@@ -1,6 +1,7 @@
 window.addEventListener("load",init);
 
 function init () {
+    setLocalStorage("store",data);
     generateCart();
     generatePromotedProduct ();
     generateTotalPrice();
